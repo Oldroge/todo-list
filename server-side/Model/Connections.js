@@ -9,4 +9,3 @@ const connection = mysql.createPool({
 });
 
 module.exports = connection;
-// .
