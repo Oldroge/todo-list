@@ -4,7 +4,7 @@
   "description": "",
   "main": "Server.js",
   "scripts": {
-    "test": "mocha Tests/ModelTest",
+    "test": "mocha Tests/**/*.js",
     "dev": "nodemon ."
   },
   "keywords": [],
