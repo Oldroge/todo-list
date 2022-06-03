@@ -1,10 +1,12 @@
 /* eslint-disable no-undef */
 const { expect } = require('chai');
 
-const taskMocks = require('../Mocks/tasksMocks');
+const { getAllTasks } = require('../../Model/Tasks');
 
-describe.only('Test tasks model', () => {
-  it('Should return an object array', () => {
-    expect(taskMocks).to.be.an('array');
+describe('Test tasks model', () => {
+  it('Should return an object array', async () => {
+    const getTasks = await getAllTasks();
+
+    expect(getTasks).to.be.an('array');
   });
 });
