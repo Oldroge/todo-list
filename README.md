@@ -12,3 +12,13 @@ que ela for crescendo, pensando em maneiras de melhorar performance e escalabili
   <li><a href='https://www.figma.com/file/MHEaFzhbI2Fulb1gIUiytX/DATABASE-TODO-LIST-MODEL?node-id=0%3A1'>Modelagem do banco de dados</a></li>
   <li><a href='https://www.notion.so/Projeto-todo-list-V1-0-5eebbecac0e94b819f19ce811737c4ca'>Descrições e tarefas a serem feitas</a></li>
 </ul>
+
+## Tecnologias utilizadas:
+<ul>
+	<li>ReactJS</li>
+	<li>Redux</li>
+	<li>Jest</li>
+	<li>NodeJS</li>
+	<li>Express</li>
+	<li>MySQL</li>
+</ul>
