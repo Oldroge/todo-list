@@ -21,7 +21,7 @@ const mockNewUser = {
   full_name: 'Alaska da Silva Polli',
   email: 'alaska@gmail.com',
   password: 'alaska104',
-  token: 'oMmGVwMcc1zge9JJOyvSA4kAi6p629802354dc5c',
+  token: 'oMmRZmWcc1zge9JJOyvSA4kAi6p629802354dc5c',
 };
 
 module.exports = {
