@@ -1,4 +1,5 @@
-const mockUserDataBase = [
+/* eslint-disable prefer-const */
+let mockUserDataBase = [
   {
     id: 1,
     full_name: 'Marina Conrad Polli da Silva',
@@ -15,4 +16,15 @@ const mockUserDataBase = [
   },
 ];
 
-module.exports = mockUserDataBase;
+const mockNewUser = {
+  id: 3,
+  full_name: 'Alaska da Silva Polli',
+  email: 'alaska@gmail.com',
+  password: 'alaska104',
+  token: 'oMmGVwMcc1zge9JJOyvSA4kAi6p629802354dc5c',
+};
+
+module.exports = {
+  mockUserDataBase,
+  mockNewUser,
+};
