@@ -13,7 +13,7 @@ const {
   POST_USER_DATAS,
   POST_TASKS_DATAS,
   SET_FOREIGN_KEY,
-} = require('../dbs_scripts/dbs');
+} = require('../dbs_scripts/sqlCommands');
 const db = require('../../Model/Connections');
 
 describe.only('Test users model', () => {
