@@ -16,7 +16,7 @@ const {
 } = require('../dbs_scripts/sqlCommands');
 const db = require('../../Model/Connections');
 
-describe.only('Test users model', () => {
+describe('Test users model', async () => {
   it('Should return an object array', async () => {
     const getAllUsers = await getUsers();
 
@@ -33,14 +33,16 @@ describe.only('Test users model', () => {
     await db.execute(DELETE_USER_DATAS);
     await db.execute(DELETE_TASKS_DATAS);
 
-    const { id, full_name, email } = mockNewUser;
+    const {
+      id, full_name, email, token,
+    } = mockNewUser;
 
     const addUser = await addNewUser(mockNewUser);
     const getAllUsers = await getUsers();
     expect(getAllUsers).to.have.lengthOf(1);
 
     expect(addUser).to.have.deep.keys({
-      id, full_name, email,
+      id, full_name, email, token,
     });
 
     await db.execute(SET_FOREIGN_KEY);
