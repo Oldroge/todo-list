@@ -25,10 +25,10 @@ const mockNewUser = {
 };
 
 const mockNewUserWithWrongInfos = {
-  id: 3,
-  email: 'alaska@gmail.com',
+  id: 4,
+  email: 'shamu@gmail.com',
   password: 'alaska104',
-  token: 'oMmRZmWcc1zge9JJOyvSA4kAi6p629802354dc5c',
+  token: 'oMmRZmWcZ1zwe9JJOSvSA4kgi6p629802354dc5c',
 };
 
 module.exports = {
