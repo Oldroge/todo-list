@@ -28,12 +28,7 @@ describe.only('Tests user Service', () => {
       expect(addUser).to.be.a('boolean');
       expect(addUser).to.be.equal(false);
     });
-    it('When input valid datas, should return true', async () => {
-      const addUser = await addNewUser(mockNewUser);
 
-      expect(addUser).to.be.a('boolean');
-      expect(addUser).to.be.equal(true);
-    });
     it('Object should have id, full_name, email, password and token keys', async () => {
       const {
         id, full_name, email, password, token,
