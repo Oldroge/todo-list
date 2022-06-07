@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-undef */
 const { expect } = require('chai');
 
@@ -17,5 +18,16 @@ describe.only('Tests user Service', () => {
 
     expect(addUser).to.be.a('boolean');
     expect(addUser).to.be.equal(true);
+  });
+  it('Object should have id, full_name, email, password and token keys', async () => {
+    const {
+      id, full_name, email, password, token,
+    } = mockNewUser;
+
+    const addUser = await addNewUser(mockNewUser);
+
+    expect(addUser).to.have.deep.keys({
+      id, full_name, email, password, token,
+    });
   });
 });
