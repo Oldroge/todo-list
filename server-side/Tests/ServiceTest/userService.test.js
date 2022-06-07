@@ -4,12 +4,12 @@ const { expect } = require('chai');
 
 const { addNewUser } = require('../../Service/usersService');
 
-const { mockNewUser } = require('../Mocks/usersMocks');
+const { mockNewUser, mockNewUserWithWrongInfos } = require('../Mocks/usersMocks');
 
 describe('Tests user Service', () => {
   describe('Test the function where add a new user', () => {
     it('When input invalid datas, should return false', async () => {
-      const addUser = await addNewUser(mockNewUser);
+      const addUser = await addNewUser(mockNewUserWithWrongInfos);
 
       expect(addUser).to.be.a('boolean');
       expect(addUser).to.be.equal(false);
@@ -43,5 +43,5 @@ describe('Tests user Service', () => {
       expect(password).to.be.a('string');
       expect(token).to.be.a('string');
     });
-  })
+  });
 });
