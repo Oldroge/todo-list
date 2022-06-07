@@ -6,7 +6,21 @@ const { addNewUser } = require('../../Service/usersService');
 
 const { mockNewUser, mockNewUserWithWrongInfos } = require('../Mocks/usersMocks');
 
-describe('Tests user Service', () => {
+const {
+  DELETE_USER_DATAS,
+  DELETE_TASKS_DATAS,
+  POST_USER_DATAS,
+  POST_TASKS_DATAS,
+  SET_FOREIGN_KEY,
+} = require('../dbs_scripts/sqlCommands');
+const db = require('../../Model/Connections');
+
+beforeEach(async () => {
+  await db.execute(DELETE_USER_DATAS);
+  await db.execute(DELETE_TASKS_DATAS);
+});
+
+describe.only('Tests user Service', () => {
   describe('Test the function where add a new user', () => {
     it('When input invalid datas, should return false', async () => {
       const addUser = await addNewUser(mockNewUserWithWrongInfos);
@@ -44,4 +58,10 @@ describe('Tests user Service', () => {
       expect(token).to.be.a('string');
     });
   });
+});
+
+afterEach(async () => {
+  await db.execute(SET_FOREIGN_KEY);
+  await db.execute(POST_USER_DATAS);
+  await db.execute(POST_TASKS_DATAS);
 });
