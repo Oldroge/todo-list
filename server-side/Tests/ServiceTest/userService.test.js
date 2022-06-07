@@ -30,4 +30,16 @@ describe.only('Tests user Service', () => {
       id, full_name, email, password, token,
     });
   });
+
+  it('The keys from object should return the right types', async () => {
+    const {
+      id, full_name, email, password, token,
+    } = await addNewUser(mockNewUser);
+
+    expect(id).to.be.a('number');
+    expect(full_name).to.be.a('string');
+    expect(email).to.be.a('string');
+    expect(password).to.be.a('string');
+    expect(token).to.be.a('string');
+  });
 });
