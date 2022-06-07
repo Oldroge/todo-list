@@ -26,7 +26,6 @@ const mockNewUser = {
 
 const mockNewUserWithWrongInfos = {
   id: 3,
-  full_name: 'Alaska da Silva Polli',
   email: 'alaska@gmail.com',
   password: 'alaska104',
   token: 'oMmRZmWcc1zge9JJOyvSA4kAi6p629802354dc5c',
