@@ -31,13 +31,13 @@ describe.only('Tests user Service', () => {
 
     it('Object should have id, full_name, email, password and token keys', async () => {
       const {
-        id, full_name, email, password, token,
+        id, full_name, email, token,
       } = mockNewUser;
 
       const addUser = await addNewUser(mockNewUser);
 
       expect(addUser).to.have.deep.keys({
-        id, full_name, email, password, token,
+        id, full_name, email, token,
       });
     });
 
