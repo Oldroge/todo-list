@@ -22,13 +22,6 @@ beforeEach(async () => {
 
 describe.only('Tests user Service', () => {
   describe('Test the function where add a new user', () => {
-    it('When input invalid datas, should return false', async () => {
-      const addUser = await addNewUser(mockNewUserWithWrongInfos);
-
-      expect(addUser).to.be.a('boolean');
-      expect(addUser).to.be.equal(false);
-    });
-
     it('Object should have id, full_name, email, password and token keys', async () => {
       const {
         id, full_name, email, token,
