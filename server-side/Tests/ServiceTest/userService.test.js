@@ -22,13 +22,14 @@ beforeEach(async () => {
 
 describe.only('Tests user Service', () => {
   describe('Test the function where add a new user', () => {
-    it('Object should have id, full_name, email, password and token keys', async () => {
+    it('Object should be an object with id, full_name, email, password and token keys', async () => {
       const {
         id, full_name, email, token,
       } = mockNewUser;
 
       const addUser = await addNewUser(mockNewUser);
 
+      expect(addUser).to.be.an('object');
       expect(addUser).to.have.deep.keys({
         id, full_name, email, token,
       });
@@ -36,13 +37,12 @@ describe.only('Tests user Service', () => {
 
     it('The keys from object should return the right types', async () => {
       const {
-        id, full_name, email, password, token,
+        id, full_name, email, token,
       } = await addNewUser(mockNewUser);
 
       expect(id).to.be.a('number');
       expect(full_name).to.be.a('string');
       expect(email).to.be.a('string');
-      expect(password).to.be.a('string');
       expect(token).to.be.a('string');
     });
   });
