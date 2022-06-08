@@ -9,21 +9,20 @@ const getUsers = async () => {
   return user_datas;
 };
 
-const addNewUser = async (newUser) => {
-  const {
-    full_name, email, password, token,
-  } = newUser;
+const addNewUser = async ({
+  full_name, email, password, token,
+}) => {
+  const connectAndInsert = await connection.execute(
+    'INSERT INTO user_datas (full_name, email, password, token) VALUES(?, ?, ?, ?)',
+    [full_name, email, password, token],
+  );
 
-  return connection.execute(`INSERT INTO todo_list.user_datas (
-      full_name, email, password, token
-      )
-      VALUES (?, ?, ?, ?)`, [full_name, email, password, token])
-    .then(([response]) => ({
-      id: response.id,
-      full_name,
-      email,
-      token,
-    }));
+  return {
+    id: connectAndInsert[0].insertId,
+    full_name,
+    email,
+    token,
+  };
 };
 
 module.exports = {
