@@ -20,7 +20,7 @@ beforeEach(async () => {
   await db.execute(DELETE_TASKS_DATAS);
 });
 
-describe.only('Tests user Service', () => {
+describe('Tests user Service', () => {
   describe('Test the function where add a new user', () => {
     it('Object should be an object with id, full_name, email, password and token keys', async () => {
       const {

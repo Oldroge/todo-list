@@ -19,9 +19,69 @@ describe('Test user controller', () => {
 
   describe.only('Test addUser function', () => {
     it('if all datas are right, return status 201', async () => {
-      await frisby.post(URL, mockNewUser)
+      await frisby.post(URL, addUser(mockNewUser))
         .expect('status', 201);
       done();
+    });
+
+    it('Field full_name should is required', async () => {
+      await frisby.post(URL, addUser({
+        id: 3,
+        email: 'alaska@gmail.com',
+        password: 'alaska104',
+        token: 'oMmRZmWcc1zge9JJOyvSA4kAi6p629802354dc5c',
+      }))
+        .expect('status', 400)
+        .then((response) => {
+          const { body } = response;
+          const result = JSON.parse(body);
+          expect(result.message).toBe('Invalid entries. Try again');
+        });
+    });
+
+    it('Field email should is required', async () => {
+      await frisby.post(URL, addUser({
+        id: 3,
+        full_name: 'Alaska da Silva Polli',
+        password: 'alaska104',
+        token: 'oMmRZmWcc1zge9JJOyvSA4kAi6p629802354dc5c',
+      }))
+        .expect('status', 400)
+        .then((response) => {
+          const { body } = response;
+          const result = JSON.parse(body);
+          expect(result.message).toBe('Invalid entries. Try again');
+        });
+    });
+
+    it('Field password should is required', async () => {
+      await frisby.post(URL, addUser({
+        id: 3,
+        full_name: 'Alaska da Silva Polli',
+        email: 'alaska@gmail.com',
+        token: 'oMmRZmWcc1zge9JJOyvSA4kAi6p629802354dc5c',
+      }))
+        .expect('status', 400)
+        .then((response) => {
+          const { body } = response;
+          const result = JSON.parse(body);
+          expect(result.message).toBe('Invalid entries. Try again');
+        });
+    });
+
+    it('Field token should is required', async () => {
+      await frisby.post(URL, addUser({
+        id: 3,
+        full_name: 'Alaska da Silva Polli',
+        email: 'alaska@gmail.com',
+        password: 'alaska104',
+      }))
+        .expect('status', 400)
+        .then((response) => {
+          const { body } = response;
+          const result = JSON.parse(body);
+          expect(result.message).toBe('Invalid entries. Try again');
+        });
     });
   });
 });
