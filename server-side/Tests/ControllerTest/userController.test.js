@@ -24,14 +24,19 @@ describe('Test user controller', () => {
       done();
     });
 
-    it('Field full_name shoud is required', async () => {
-      await frisby.post(URL, addUser(mockNewUser))
+    it('Field full_name should is required', async () => {
+      await frisby.post(URL, addUser({
+        id: 3,
+        email: 'alaska@gmail.com',
+        password: 'alaska104',
+        token: 'oMmRZmWcc1zge9JJOyvSA4kAi6p629802354dc5c',
+      }))
         .expect('status', 400)
         .then((response) => {
           const { body } = response;
           const result = JSON.parse(body);
           expect(result.message).toBe('Invalid entries. Try again');
-        })
-    })
+        });
+    });
   });
 });
