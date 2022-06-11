@@ -38,5 +38,20 @@ describe('Test user controller', () => {
           expect(result.message).toBe('Invalid entries. Try again');
         });
     });
+
+    it('Field email should is required', async () => {
+      await frisby.post(URL, addUser({
+        id: 3,
+        full_name: 'Alaska da Silva Polli',
+        password: 'alaska104',
+        token: 'oMmRZmWcc1zge9JJOyvSA4kAi6p629802354dc5c',
+      }))
+        .expect('status', 400)
+        .then((response) => {
+          const { body } = response;
+          const result = JSON.parse(body);
+          expect(result.message).toBe('Invalid entries. Try again');
+        });
+    });
   });
 });
