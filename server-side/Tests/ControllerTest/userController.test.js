@@ -19,7 +19,7 @@ describe('Test user controller', () => {
 
   describe.only('Test addUser function', () => {
     it('if all datas are right, return status 201', async () => {
-      await frisby.post(URL, mockNewUser)
+      await frisby.post(URL, addUser(mockNewUser))
         .expect('status', 201);
       done();
     });
