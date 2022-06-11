@@ -23,5 +23,15 @@ describe('Test user controller', () => {
         .expect('status', 201);
       done();
     });
+
+    it('Field full_name shoud is required', async () => {
+      await frisby.post(URL, addUser(mockNewUser))
+        .expect('status', 400)
+        .then((response) => {
+          const { body } = response;
+          const result = JSON.parse(body);
+          expect(result.message).toBe('Invalid entries. Try again');
+        })
+    })
   });
 });
